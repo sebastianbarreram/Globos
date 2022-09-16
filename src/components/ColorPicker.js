@@ -5,6 +5,7 @@ const ColorPicker = ({ currentColor, setCurrentColor }) => {
     const classes = useStyles({ currentColor });
     const colorChange = (event) => {
         // console.log(event.target.value);
+        console.log(event.target.value);
         setCurrentColor(event.target.value)
     }
 
@@ -16,7 +17,6 @@ const ColorPicker = ({ currentColor, setCurrentColor }) => {
                 value={currentColor}
                 onChange={colorChange}
             />
-
         </div>
     )
 }
