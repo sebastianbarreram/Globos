@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import useStyles from "./Grid.style";
 
 export default function Grid({ cells, setCells, currentColor }) {
-  // console.log(cells);
   const classes = useStyles();
   const colores = [];
   cells.forEach((element) => {
     colores.push(element.color);
   });
   const [colors, setColors] = useState(colores);
-  // var colors = JSON.parse(localStorage.getItem("colors"));
-  console.log(colors);
 
   function tipoToClass(tipo) {
     var tipoClass = "";
@@ -47,11 +44,7 @@ export default function Grid({ cells, setCells, currentColor }) {
     var id = event.target.id;
     var divCell = document.getElementById(id);
     divCell.style.setProperty("--customColor", currentColor);
-    console.log(id);
-    console.log(currentColor);
-    console.log(typeof currentColor);
     colors[id] = currentColor;
-    console.log(colors[id]);
     console.log(colors);
     localStorage.setItem("colors", JSON.stringify(colors));
     console.log(contarColores(colors));
