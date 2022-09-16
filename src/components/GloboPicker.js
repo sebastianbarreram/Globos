@@ -4,15 +4,14 @@ export default function GloboPicker() {
 
     const [globo, setGlobo] = useState('cojin')
     const [pliegos, setPliegos] = useState(0)
-    const [cuadricula, setCuadricula] = useState(0)
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
         if (globo === 'cojin') {
             const a = Math.sqrt(pliegos / 8)
             if (Number.isInteger(a)) {
-                setCuadricula(a * 2)
+    
                 sessionStorage.setItem('cuadricula', a * 2)
                 console.log('Si es entero')
             }

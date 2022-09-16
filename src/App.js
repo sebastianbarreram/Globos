@@ -26,7 +26,7 @@ for (var i = 0; i < initialCells.length; i++) {
   if (i === cuadricula / 2 - 1) {
     initialCells[i] = {
       on: true,
-      color: "#a7c8eb",
+      color: "#ffffff",
       tipo: "1",
       id: i,
     };
@@ -36,7 +36,7 @@ for (var i = 0; i < initialCells.length; i++) {
     // console.log('valortipo1',valorTipo1)
     initialCells[i] = {
       on: true,
-      color: "#a7c8eb",
+      color: "#ffffff",
       tipo: "1",
       id: i,
     };
@@ -47,7 +47,7 @@ for (var i = 0; i < initialCells.length; i++) {
   if (i === cuadricula / 2) {
     initialCells[i] = {
       on: true,
-      color: "#007bff",
+      color: "#ffffff",
       tipo: "2",
       id: i,
     };
@@ -57,7 +57,7 @@ for (var i = 0; i < initialCells.length; i++) {
   if (i === valorTipo2 && valorTipo2 < Math.pow(cuadricula, 2) / 2) {
     initialCells[i] = {
       on: true,
-      color: "#007bff",
+      color: "#ffffff",
       tipo: "2",
       id: i,
     };
@@ -68,7 +68,7 @@ for (var i = 0; i < initialCells.length; i++) {
   if (i === gridInit3) {
     initialCells[i] = {
       on: true,
-      color: "#007bff",
+      color: "#ffffff",
       tipo: "3",
       id: i,
     };
@@ -77,7 +77,7 @@ for (var i = 0; i < initialCells.length; i++) {
   if (i === valorTipo3) {
     initialCells[i] = {
       on: true,
-      color: "#007bff",
+      color: "#ffffff",
       tipo: "3",
       id: i,
     };
@@ -88,7 +88,7 @@ for (var i = 0; i < initialCells.length; i++) {
   if (i === gridInit4) {
     initialCells[i] = {
       on: true,
-      color: "#a7c8eb",
+      color: "#ffffff",
       tipo: "4",
       id: i,
     };
@@ -97,22 +97,18 @@ for (var i = 0; i < initialCells.length; i++) {
   if (i === valorTipo4) {
     initialCells[i] = {
       on: true,
-      color: "#a7c8eb",
+      color: "#ffffff",
       tipo: "4",
       id: i,
     };
     valorTipo4 = valorTipo4 + gridInit1;
   }
-
-  console.log(initialCells[i]);
-  console.log(i);
 }
 
 function App() {
   const [currentColor, setCurrentColor] = useState("#5DC1B9");
   const [cells, setCells] = useState(initialCells);
   const classes = useStyles();
-  console.log("cells de app", cells);
 
   return (
     <div className={classes.app}>
@@ -122,18 +118,6 @@ function App() {
         setCurrentColor={setCurrentColor}
       />
       <Grid cells={cells} setCells={setCells} currentColor={currentColor} />
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
-      <div class="triangle-left"></div>
     </div>
     
   );
