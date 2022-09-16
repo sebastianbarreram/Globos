@@ -6,7 +6,7 @@ export default function GloboPicker() {
     const [pliegos, setPliegos] = useState(0)
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         if (globo === 'cojin') {
             const a = Math.sqrt(pliegos / 8)

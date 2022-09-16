@@ -6,7 +6,7 @@ import ColorPicker from "./components/ColorPicker";
 import Grid from "./components/Grid.js";
 
 const offCell = {
-  on: false,
+  on: true,
   color: "#ffffff",
   tipo: "0",
 };
@@ -28,7 +28,7 @@ for (var i = 0; i < initialCells.length; i++) {
       on: true,
       color: "#ffffff",
       tipo: "1",
-      id: i,
+      // id: i,
     };
     var valorTipo1 = cuadricula / 2 - 1 + gridInit1;
   }
@@ -38,7 +38,7 @@ for (var i = 0; i < initialCells.length; i++) {
       on: true,
       color: "#ffffff",
       tipo: "1",
-      id: i,
+      // id: i,
     };
     valorTipo1 = valorTipo1 + gridInit1;
   }
@@ -49,7 +49,7 @@ for (var i = 0; i < initialCells.length; i++) {
       on: true,
       color: "#ffffff",
       tipo: "2",
-      id: i,
+      // id: i,
     };
     var valorTipo2 = cuadricula / 2 + gridInit2;
     // console.log('valortipo2', valorTipo2)
@@ -59,7 +59,7 @@ for (var i = 0; i < initialCells.length; i++) {
       on: true,
       color: "#ffffff",
       tipo: "2",
-      id: i,
+      // id: i,
     };
     valorTipo2 = valorTipo2 + gridInit2;
   }
@@ -70,7 +70,7 @@ for (var i = 0; i < initialCells.length; i++) {
       on: true,
       color: "#ffffff",
       tipo: "3",
-      id: i,
+      // id: i,
     };
     var valorTipo3 = gridInit3 + gridInit2;
   }
@@ -79,7 +79,7 @@ for (var i = 0; i < initialCells.length; i++) {
       on: true,
       color: "#ffffff",
       tipo: "3",
-      id: i,
+      // id: i,
     };
     valorTipo3 = valorTipo3 + gridInit2;
   }
@@ -90,7 +90,7 @@ for (var i = 0; i < initialCells.length; i++) {
       on: true,
       color: "#ffffff",
       tipo: "4",
-      id: i,
+      // id: i,
     };
     var valorTipo4 = gridInit4 + gridInit1;
   }
@@ -99,7 +99,7 @@ for (var i = 0; i < initialCells.length; i++) {
       on: true,
       color: "#ffffff",
       tipo: "4",
-      id: i,
+      // id: i,
     };
     valorTipo4 = valorTipo4 + gridInit1;
   }
@@ -109,6 +109,8 @@ function App() {
   const [currentColor, setCurrentColor] = useState("#5DC1B9");
   const [cells, setCells] = useState(initialCells);
   const classes = useStyles();
+  
+  // localStorage.setItem("colors",JSON.stringify(colores))
 
   return (
     <div className={classes.app}>

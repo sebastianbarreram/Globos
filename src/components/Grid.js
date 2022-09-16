@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import useStyles from "./Grid.style";
 
-export default function Grid({cells, setCells, currentColor}) {
-  console.log(cells);
+export default function Grid({ cells, setCells, currentColor }) {
+  // console.log(cells);
   const classes = useStyles();
+  const colores = [];
+  cells.forEach((element) => {
+    colores.push(element.color);
+  });
+  const [colors, setColors] = useState(colores);
+  // var colors = JSON.parse(localStorage.getItem("colors"));
+  console.log(colors);
 
   function tipoToClass(tipo) {
     var tipoClass = "";
@@ -23,15 +30,31 @@ export default function Grid({cells, setCells, currentColor}) {
 
   let cellsToRender = [];
   for (var i = 0; i < cells.length; i++) {
-    cellsToRender.push(<div id={i} className={tipoToClass(cells[i].tipo)} />);
+    cellsToRender.push(
+      <div key={i} id={i} className={tipoToClass(cells[i].tipo)} />
+    );
+  }
+
+  function contarColores(colors) {
+    var repetidos = {};
+    colors.forEach(function (numero) {
+      repetidos[numero] = (repetidos[numero] || 0) + 1;
+    });
+    return repetidos;
   }
 
   const updateCell = (event) => {
     var id = event.target.id;
-    var prueba = document.getElementById(id);
-    // prueba.style.backgroundColor = currentColor;
-    // prueba.style.borderRightColor = currentColor;
-    prueba.style.setProperty("--customColor",currentColor)
+    var divCell = document.getElementById(id);
+    divCell.style.setProperty("--customColor", currentColor);
+    console.log(id);
+    console.log(currentColor);
+    console.log(typeof currentColor);
+    colors[id] = currentColor;
+    console.log(colors[id]);
+    console.log(colors);
+    localStorage.setItem("colors", JSON.stringify(colors));
+    console.log(contarColores(colors));
   };
 
   return (
@@ -39,91 +62,6 @@ export default function Grid({cells, setCells, currentColor}) {
       <div className={classes.container} onClick={updateCell}>
         {cellsToRender}
       </div>
-      {/* <div id="742" className="triangle-left" onClick={updateCell}></div> */}
-
-      {/* <div className={classes.container}> */}
-
-      {/*Cojin 8pliegos ->2 columnas en Grid.style
-                <div className={classes.triangletopleft}></div>
-                <div className={classes.triangletopright}></div>
-                <div className={classes.trianglebottomleft}></div>
-                <div className={classes.trianglebottomright}></div> */}
-
-      {/* Cojin 32pliegos ->4columnas en Grid.style
-                <div className={classes.rectangle2}></div>
-                <div className={classes.triangletopleft}></div>
-                <div className={classes.triangletopright}></div>
-                <div className={classes.rectangle2}></div>
-
-                <div className={classes.triangletopleft}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.triangletopright}></div>
-
-                <div className={classes.trianglebottomleft}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.trianglebottomright}></div>
-
-                <div className={classes.rectangle2}></div>
-                <div className={classes.trianglebottomleft}></div>
-                <div className={classes.trianglebottomright}></div>
-                <div className={classes.rectangle2}></div> */}
-
-      {/* Cojin 72 */}
-      {/* <div className={classes.rectangle2}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.triangletopleft}></div>
-                <div className={classes.triangletopright}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.rectangle2}></div>
-
-                <div className={classes.rectangle2}></div>
-                <div className={classes.triangletopleft}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.triangletopright}></div>
-                <div className={classes.rectangle2}></div>
-
-                <div className={classes.triangletopleft}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.triangletopright}></div>
-
-
-                <div className={classes.trianglebottomleft}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.trianglebottomright}></div>
-
-                <div className={classes.rectangle2}></div>
-                <div className={classes.trianglebottomleft}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.trianglebottomright}></div>
-                <div className={classes.rectangle2}></div>
-
-                <div className={classes.rectangle2}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.trianglebottomleft}></div>
-                <div className={classes.trianglebottomright}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.rectangle2}></div> */}
-
-      {/* Caja 16
-                
-                <div className={classes.triangletopleft}></div>
-                <div className={classes.triangletopright}></div>
-                <div className={classes.rectangle2}></div>
-                <div className={classes.rectangle1}></div>
-                <div className={classes.trianglebottomleft}></div>
-                <div className={classes.trianglebottomright}></div> */}
-
-      {/* </div> */}
     </div>
   );
 }
