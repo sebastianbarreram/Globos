@@ -38,15 +38,25 @@ export default function Grid({
     );
   }
 
-  function contarColores(colors, className) {
+  function countingWhiteRectangles(number) {
+    let result = 0;
+    for (let i = number; i > 0; i--) {
+      result += i;
+    }
+    return result;
+  }
+
+  function contarColores(colors) {
     var repetidos = {};
-    colors.forEach(function (numero) {
-      if (className === "rectangle") {
-        repetidos[numero] = (repetidos[numero] || 0) + 1;
+    colors.forEach(function (element, index) {
+      if (cells[index].tipo === "0") {
+        repetidos[element] = (repetidos[element] || 0) + 1;
       } else {
-        repetidos[numero] = (repetidos[numero] || 0) + 0.5;
+        repetidos[element] = (repetidos[element] || 0) + 0.5;
       }
     });
+    repetidos["#ffffff"] -=
+      countingWhiteRectangles(sessionStorage.getItem("cuadricula") / 2 - 1) * 4;
     return repetidos;
   }
 
@@ -68,7 +78,7 @@ export default function Grid({
     }
     console.log(colors);
     localStorage.setItem("colors", JSON.stringify(colors));
-    console.log(contarColores(colors,divCell.className));
+    console.log(contarColores(colors));
   };
 
   return (
