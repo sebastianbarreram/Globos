@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,160 +40,179 @@
 
 .triangle-left {
   width: 0;
-    height: 0;
-    border-right: 80px solid transparent;
-    border-top: 55px solid transparent;
-    border-left: 80px solid #000000;
-    border-bottom: 55px solid #000000;
-    position: relative;
+  height: 0;
+  border-right: 80px solid transparent;
+  border-top: 55px solid transparent;
+  border-left: 80px solid #000000;
+  border-bottom: 55px solid #000000;
+  position: relative;
 }
 
 
-  .triangle-left:after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-right: 75px solid transparent;
-    border-top: 50px solid transparent;
-    border-left: 75px solid;
-    border-bottom: 50px solid;
-    border-left-color: var(--customColor,#000000);
-    border-bottom-color: var(--customColor,#000000);
-    position: absolute;
-    left: -77.5px;
-    top: -47.5px;
-  }
+.triangle-left:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 75px solid transparent;
+  border-top: 50px solid transparent;
+  border-left: 75px solid;
+  border-bottom: 50px solid;
+  border-left-color: var(--customColor, #000000);
+  border-bottom-color: var(--customColor, #000000);
+  position: absolute;
+  left: -77.5px;
+  top: -47.5px;
+}
 
-  .triangletopleft {
-    width: 0;
-    height: 0;
-    border-right: 50px solid #000000;
-    border-top: 75px solid transparent;
-    border-left: 50px solid transparent;
-    border-bottom: 75px solid #000000;
-    position: relative;
-    cursor: pointer;
-    transition: all 200ms linear;
-  }
-  
-    .triangletopleft:hover {
-      transform: scale(1.1);
-    }
+.triangletopleft {
+  width: 0;
+  height: 0;
+  border-right: 50px solid #000000;
+  border-top: 75px solid transparent;
+  border-left: 50px solid transparent;
+  border-bottom: 75px solid #000000;
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms linear;
+}
 
-    .triangletopleft::after {
-      content: '';
-      width: 0;
-      height: 0;
-      border-right: 47px solid;
-      border-top: 72px solid transparent;
-      border-left: 47px solid transparent;
-      border-bottom: 70px solid;
-      border-right-color: var(--customColor,#fff);
-      border-bottom-color: var(--customColor,#fff);
-      position: absolute;
-      top: -69px;
-      left: -46px;
-    }
+.triangletopleft:hover {
+  transform: scale(1.1);
+}
 
-    .trianglebottomleft {
-      width: 0;
-      height: 0;
-      border-right: 50px solid #000000;
-      border-top: 75px solid #000000;
-      border-left: 50px solid transparent;
-      border-bottom: 75px solid transparent;
-      position: relative;
-      cursor: pointer;
-      transition: all 200ms linear;
-    }
+.triangletopleft::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 47px solid;
+  border-top: 72px solid transparent;
+  border-left: 47px solid transparent;
+  border-bottom: 70px solid;
+  border-right-color: var(--customColor, #fff);
+  border-bottom-color: var(--customColor, #fff);
+  position: absolute;
+  top: -69px;
+  left: -46px;
+}
 
-    .trianglebottomleft:hover {
-        transform: scale(1.1);
-      }
+.trianglebottomleft {
+  width: 0;
+  height: 0;
+  border-right: 50px solid #000000;
+  border-top: 75px solid #000000;
+  border-left: 50px solid transparent;
+  border-bottom: 75px solid transparent;
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms linear;
+}
 
-      .trianglebottomleft::after {
-        content: '';
-        width: 0;
-        height: 0;
-        border-right: 47px solid;
-        border-top: 72px solid;
-        border-left: 47px solid transparent;
-        border-bottom: 70px solid transparent;
-        border-right-color: var(--customColor,#fff);
-        border-top-color: var(--customColor,#fff);
-        position: absolute;
-        top: -74px;
-        left: -46px;
-      }
+.trianglebottomleft:hover {
+  transform: scale(1.1);
+}
 
-    .trianglebottomright {
-      width: 0;
-      height: 0;
-      border-right: 50px solid transparent;
-      border-top: 75px solid #000000;
-      border-left: 50px solid #000000;
-      border-bottom: 75px solid transparent;
-      position: relative;
-      cursor: pointer;
-      transition: all 200ms linear;
-    }
-      .trianglebottomright:hover {
-        transform: scale(1.1);
-      }
+.trianglebottomleft::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 47px solid;
+  border-top: 72px solid;
+  border-left: 47px solid transparent;
+  border-bottom: 70px solid transparent;
+  border-right-color: var(--customColor, #fff);
+  border-top-color: var(--customColor, #fff);
+  position: absolute;
+  top: -74px;
+  left: -46px;
+}
 
-      .trianglebottomright::after {
-        content: '';
-        width: 0;
-        height: 0;
-        border-right: 47px solid transparent;
-        border-top: 72px solid;
-        border-left: 47px solid;
-        border-bottom: 70px solid transparent;
-        border-left-color: var(--customColor,#fff);
-        border-top-color: var(--customColor,#fff);
-        position: absolute;
-        top: -74px;
-        left: -48px;
-      }
-    
-      .triangletopright {
-        width: 0;
-        height: 0;
-        border-right: 50px solid transparent;
-        border-top: 75px solid transparent;
-        border-left: 50px solid #000000;
-        border-bottom: 75px solid #000000;
-        position: relative;
-        cursor: pointer;
-        transition: all 200ms linear;
-      }
-        .triangletopright:hover {
-          transform: scale(1.1);
-        }
+.trianglebottomright {
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-top: 75px solid #000000;
+  border-left: 50px solid #000000;
+  border-bottom: 75px solid transparent;
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms linear;
+}
 
-        .triangletopright::after {
-          content: '';
-          width: 0;
-          height: 0;
-          border-right: 47px solid transparent;
-          border-top: 72px solid transparent;
-          border-left: 47px solid;
-          border-bottom: 70px solid;
-          border-left-color: var(--customColor,#fff);
-          border-bottom-color: var(--customColor,#fff);
-          position: absolute;
-          top: -69px;
-          left: -48px;
-        }
-        .rectangle {
-          height: 150px;
-          width: 100px;
-          background:  var(--customColor,#fff);;
-          border: 2px solid black;
-          cursor: pointer;
-          transition: all 200ms linear;
-        }
-        .rectangle:hover {
-          transform: scale(1.1);
-        }
+.trianglebottomright:hover {
+  transform: scale(1.1);
+}
 
+.trianglebottomright::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 47px solid transparent;
+  border-top: 72px solid;
+  border-left: 47px solid;
+  border-bottom: 70px solid transparent;
+  border-left-color: var(--customColor, #fff);
+  border-top-color: var(--customColor, #fff);
+  position: absolute;
+  top: -74px;
+  left: -48px;
+}
+
+.triangletopright {
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-top: 75px solid transparent;
+  border-left: 50px solid #000000;
+  border-bottom: 75px solid #000000;
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms linear;
+}
+
+.triangletopright:hover {
+  transform: scale(1.1);
+}
+
+.triangletopright::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 47px solid transparent;
+  border-top: 72px solid transparent;
+  border-left: 47px solid;
+  border-bottom: 70px solid;
+  border-left-color: var(--customColor, #fff);
+  border-bottom-color: var(--customColor, #fff);
+  position: absolute;
+  top: -69px;
+  left: -48px;
+}
+
+.rectangle {
+  height: 150px;
+  width: 100px;
+  background: var(--customColor, #fff);
+  ;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: all 200ms linear;
+}
+
+.rectangle:hover {
+  transform: scale(1.1);
+}
+
+.colorSwatchContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.colorSwatch {
+  margin: 0.5rem;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

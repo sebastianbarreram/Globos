@@ -107,7 +107,7 @@ function App() {
         currentColor={currentColor}
         setCurrentColor={setCurrentColor}
       />
-      <Grid cells={cells} setCells={setCells} currentColor={currentColor} />
+      <Grid cells={cells} setCells={setCells} currentColor={currentColor} setCurrentColor={setCurrentColor} />
     </div>
   );
 }

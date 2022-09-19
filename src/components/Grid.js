@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import useStyles from "./Grid.style";
 
-export default function Grid({ cells, setCells, currentColor }) {
+export default function Grid({
+  cells,
+  setCells,
+  currentColor,
+  setCurrentColor,
+}) {
   const classes = useStyles();
   const colores = [];
   cells.forEach((element) => {
     colores.push(element.color);
   });
   const [colors, setColors] = useState(colores);
+  const [colorHistory, setColorHistory] = useState([]);
 
   function tipoToClass(tipo) {
     var tipoClass = "";
@@ -41,10 +47,20 @@ export default function Grid({ cells, setCells, currentColor }) {
   }
 
   const updateCell = (event) => {
+    event.preventDefault();
     var id = event.target.id;
     var divCell = document.getElementById(id);
-    divCell.style.setProperty("--customColor", currentColor);
-    colors[id] = currentColor;
+    if (event.type === "click") {
+      // console.log("Left click");
+      divCell.style.setProperty("--customColor", currentColor);
+      colors[id] = currentColor;
+      colorHistory.push(currentColor);
+    } else if (event.type === "contextmenu") {
+      const OffCell = "#ffffff";
+      // console.log("Right click");
+      divCell.style.setProperty("--customColor", OffCell);
+      colors[id] = OffCell;
+    }
     console.log(colors);
     localStorage.setItem("colors", JSON.stringify(colors));
     console.log(contarColores(colors));
@@ -52,7 +68,21 @@ export default function Grid({ cells, setCells, currentColor }) {
 
   return (
     <div>
-      <div className={classes.container} onClick={updateCell}>
+      <div className="colorSwatchContainer">
+        {[...new Set(colorHistory.map((color) => color))].map((color) => (
+          <div
+            key={color}
+            onClick={() => setCurrentColor(color)}
+            className="colorSwatch"
+            style={{ background: color }}
+          />
+        ))}
+      </div>
+      <div
+        className={classes.container}
+        onClick={updateCell}
+        onContextMenu={updateCell}
+      >
         {cellsToRender}
       </div>
     </div>
