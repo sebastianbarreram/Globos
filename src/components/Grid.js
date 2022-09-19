@@ -38,10 +38,14 @@ export default function Grid({
     );
   }
 
-  function contarColores(colors) {
+  function contarColores(colors, className) {
     var repetidos = {};
     colors.forEach(function (numero) {
-      repetidos[numero] = (repetidos[numero] || 0) + 1;
+      if (className === "rectangle") {
+        repetidos[numero] = (repetidos[numero] || 0) + 1;
+      } else {
+        repetidos[numero] = (repetidos[numero] || 0) + 0.5;
+      }
     });
     return repetidos;
   }
@@ -50,6 +54,7 @@ export default function Grid({
     event.preventDefault();
     var id = event.target.id;
     var divCell = document.getElementById(id);
+    console.log(divCell.className);
     if (event.type === "click") {
       // console.log("Left click");
       divCell.style.setProperty("--customColor", currentColor);
@@ -63,7 +68,7 @@ export default function Grid({
     }
     console.log(colors);
     localStorage.setItem("colors", JSON.stringify(colors));
-    console.log(contarColores(colors));
+    console.log(contarColores(colors,divCell.className));
   };
 
   return (
