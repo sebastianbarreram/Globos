@@ -226,3 +226,9 @@
   border: none;
   cursor: pointer;
 }
+
+.colorContainer{
+  justify-items: center;
+  display: grid;
+  margin: 4px;
+}

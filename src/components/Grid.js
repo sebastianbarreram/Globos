@@ -85,12 +85,15 @@ export default function Grid({
     <div>
       <div className="colorSwatchContainer">
         {[...new Set(colorHistory.map((color) => color))].map((color) => (
-          <div
-            key={color}
-            onClick={() => setCurrentColor(color)}
-            className="colorSwatch"
-            style={{ background: color }}
-          />
+          <div className="colorContainer">
+            <div
+              key={color}
+              onClick={() => setCurrentColor(color)}
+              className="colorSwatch"
+              style={{ background: color }}
+            />
+            <p>{color}</p>
+          </div>
         ))}
       </div>
       <div
