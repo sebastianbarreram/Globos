@@ -64,7 +64,7 @@ export default function Grid({
     event.preventDefault();
     var id = event.target.id;
     var divCell = document.getElementById(id);
-    console.log(divCell.className);
+    // console.log(divCell.className);
     if (event.type === "click") {
       // console.log("Left click");
       divCell.style.setProperty("--customColor", currentColor);
@@ -76,9 +76,13 @@ export default function Grid({
       divCell.style.setProperty("--customColor", OffCell);
       colors[id] = OffCell;
     }
-    console.log(colors);
+    // console.log(colors);
     localStorage.setItem("colors", JSON.stringify(colors));
-    console.log(contarColores(colors));
+    // console.log(contarColores(colors));
+  };
+
+  const contarPliegos = (event) => {
+    window.alert(JSON.stringify(contarColores(colors)));
   };
 
   return (
@@ -95,6 +99,9 @@ export default function Grid({
             <p>{color}</p>
           </div>
         ))}
+      </div>
+      <div style={{ justifyContent: "center", display: "flex" }}>
+        <button onClick={contarPliegos}>Contar pliegos</button>
       </div>
       <div
         className={classes.container}
