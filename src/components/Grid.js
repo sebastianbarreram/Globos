@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useStyles from "./Grid.style";
+import { typeToClassEnum } from "../constants/typeToClass.Enum";
 
 export default function Grid({
   cells,
@@ -16,19 +17,7 @@ export default function Grid({
   const [colorHistory, setColorHistory] = useState([]);
 
   function tipoToClass(tipo) {
-    var tipoClass = "";
-    if (tipo === "1") {
-      tipoClass = "triangletopleft";
-    } else if (tipo === "2") {
-      tipoClass = "triangletopright";
-    } else if (tipo === "3") {
-      tipoClass = "trianglebottomleft";
-    } else if (tipo === "4") {
-      tipoClass = "trianglebottomright";
-    } else if (tipo === "0") {
-      tipoClass = "rectangle";
-    }
-    return tipoClass;
+    return typeToClassEnum[tipo];
   }
 
   let cellsToRender = [];

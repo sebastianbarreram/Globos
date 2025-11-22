@@ -221,5 +221,77 @@
 .contenedor {
   display: flex;
   position: relative;
-  
+
+}
+
+.trapezoidBottomLeft {
+  width: 6.25em;
+  /* base mayor arriba */
+  height: 0;
+  border-top: 9.375em solid #000000;
+  /* color del trapecio */
+  border-right: 0px solid transparent;
+  /* ángulo recto superior derecho */
+  border-left: 3.075em solid transparent;
+  /* inclinación izquierda */
+  border-bottom: 0px solid transparent;
+  /* ángulo recto inferior derecho */
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms linear;
+}
+
+.trapezoidBottomLeft:hover {
+  transform: scale(1.1);
+}
+
+.trapezoidBottomLeft::after {
+  content: '';
+  width: 2.8em;
+  /* base mayor arriba */
+  height: 0;
+  border-top: 9em solid;
+  /* color del trapecio */
+  border-right: 0px solid transparent;
+  /* ángulo recto superior derecho */
+  border-left: 2.8em solid transparent;
+  /* inclinación izquierda */
+  border-bottom: 0px solid transparent;
+  /* ángulo recto inferior derecho */
+  border-top-color: var(--customColor, #fff);
+  position: absolute;
+  top: -9.26em;
+  left: -2.6em;
+}
+
+.trapezoidTriangleBottomLeft {
+  width: 0;
+  height: 0;
+  border-right: 1.563em solid #000000;
+  border-top: 4.688em solid #000000;
+  border-left: 1.563em solid transparent;
+  border-bottom: 4.688em solid transparent;
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms linear;
+  justify-self: flex-end;
+}
+
+.trapezoidTriangleBottomLeft:hover {
+  transform: scale(1.1);
+}
+
+.trapezoidTriangleBottomLeft::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 1.4em solid;
+  border-top: 4.375em solid;
+  border-left: 1.4em solid transparent;
+  border-bottom: 4.375em solid transparent;
+  border-right-color: var(--customColor, #fff);
+  border-top-color: var(--customColor, #fff);
+  position: absolute;
+  top: -4.625em;
+  left: -1.3em;
 }
