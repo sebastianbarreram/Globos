@@ -97,20 +97,35 @@ if (globoType === "cojin") {
     }
   }
 } else if (globoType === "puntilla") {
-  initialCells[0] = {
+  initialCells[3] = {
     on: true,
     color: "#ffffff",
     tipo: "5",
   };
+  initialCells[0] = {
+    on: true,
+    color: "#ffffff",
+    tipo: "1",
+  };
   initialCells[1] = {
     on: true,
     color: "#ffffff",
-    tipo: "3",
+    tipo: "2",
   };
-  initialCells[3] = {
+  initialCells[6] = {
     on: true,
     color: "#ffffff",
     tipo: "6",
+  };
+  initialCells[4] = {
+    on: true,
+    color: "#ffffff",
+    tipo: "7",
+  };
+  initialCells[7] = {
+    on: true,
+    color: "#ffffff",
+    tipo: "8",
   };
   console.log("Initialcells antes de puntilla:", initialCells);
 }
